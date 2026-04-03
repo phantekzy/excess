@@ -7,4 +7,9 @@ export const User = sequelize.define("user", {
     defaultValue: DataTypes.UUIDV4,
     primaryKey: true,
   },
+  email: {
+    type: DataTypes.STRING,
+    unique: true,
+    allowNull: false,
+  },
 });
