@@ -7,3 +7,5 @@ export const fetchAllProducts = async () => {
 export const adjustStock = async (id: string, quantity: number) => {
   return await Product.update({ quantity }, { where: { id } });
 };
+
+// REDO THIS AND UNDERSTAND IT

@@ -1,8 +1,8 @@
-### Nkrn
+### Excess 
  Enterprise Resource Planning (ERP)
 ### The structure i should create inchalah :
 ```
-Nkrn/
+excess/
 ├── backend/
 │   ├── src/
 │   │   ├── config/             # Database and environment configs
