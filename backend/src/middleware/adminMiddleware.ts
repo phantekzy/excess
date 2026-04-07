@@ -1,4 +1,4 @@
-import { Request } from "express";
+import { NextFunction, Request, Response } from "express";
 
 interface AuthenticatedRequest extends Request {
   user?: {
@@ -7,3 +7,13 @@ interface AuthenticatedRequest extends Request {
     role: "admin" | "staff";
   };
 }
+
+export const adminMiddleware = (
+  req: AuthenticatedRequest,
+  res: Response,
+  next: NextFunction,
+) => {
+  if (!req.user) {
+    return res.status(401).json({ error: "Authentification required" });
+  }
+};
