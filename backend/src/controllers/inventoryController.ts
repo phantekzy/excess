@@ -9,3 +9,10 @@ export const getInventory = async (req: Request, res: Response) => {
     res.status(500).json({ error: "Internal Server Errror" });
   }
 };
+
+export const updateStock = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+    const { quantity } = req.body;
+  } catch (error) {}
+};
