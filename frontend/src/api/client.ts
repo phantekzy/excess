@@ -12,4 +12,21 @@ export const excessApi = async (
     "Content-Type": "application/json",
     ...options.headers,
   };
+
+  try {
+    const response = await fetch(url, {
+      ...options,
+      headers,
+    });
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      throw new Error(
+        errorData.error || `Excess server Error : ${response.status}`,
+      );
+    }
+    return await response.json();
+  } catch (error: any) {
+    console.error("Network or Logic Error :", error.message);
+    throw error;
+  }
 };
