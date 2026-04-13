@@ -25,8 +25,10 @@ export const excessApi = async (
       );
     }
     return await response.json();
-  } catch (error: any) {
-    console.error("Network or Logic Error :", error.message);
+  } catch (error: unknown) {
+    const message =
+      error instanceof Error ? error.message : "An unknown error occured";
+    console.error("Network or Logic Error :", message);
     throw error;
   }
 };
